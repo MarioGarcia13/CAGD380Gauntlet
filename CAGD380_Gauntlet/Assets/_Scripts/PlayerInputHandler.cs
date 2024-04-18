@@ -14,8 +14,9 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (playerPrefab != null)
         {
-            playerController = GameObject.Instantiate(playerPrefab, startPosition, transform.rotation).GetComponent<PlayerController>();
+            playerController = GameObject.Instantiate(playerPrefab, GameManager.instance.spawnPoints[0].transform.position, transform.rotation).GetComponent<PlayerController>();
             transform.parent = playerController.transform;
+            transform.position = playerController.transform.position;
         }
     }
 
