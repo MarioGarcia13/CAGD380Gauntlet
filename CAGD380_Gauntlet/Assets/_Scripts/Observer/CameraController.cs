@@ -8,7 +8,7 @@ public class CameraController : Observer
     private bool _hitFood;
     private bool _lifeForceLow;
     private Vector3 _initialPosition;
-    //private float _shakeMagnitude = 0.1f;
+    private float _shakeMagnitude = 0.1f;
     private PlayerController _playerController;
 
     private void OnEnable()
@@ -47,7 +47,7 @@ public class CameraController : Observer
         }
         if (_playerController)
         {
-            _lifeForceLow = _playerController.IsTurboOn;
+            //_lifeForceLow = _playerController.IsTurboOn;
         }
     }
 }

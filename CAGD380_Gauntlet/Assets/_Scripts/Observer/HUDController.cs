@@ -45,8 +45,8 @@ public class HUDController : Observer
 
         if (_playerController)
         {
-            _isTurboOn = _playerController.IsTurboOn;
-            _currentHealth = _playerController.CurrentHealth;
+            //_isTurboOn = _playerController.IsTurboOn;
+            //_currentHealth = _playerController.CurrentHealth;
         }
     }
 }
