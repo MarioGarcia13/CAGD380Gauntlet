@@ -6,7 +6,7 @@ public class HUDController : Observer
 {
     private bool _hitOtherPlayer;
     private bool _hitFood;
-    private bool _lifeForceLow;
+    //private bool _lifeForceLow;
 
     private bool _isTurboOn;
     private float _currentHealth;
@@ -19,7 +19,7 @@ public class HUDController : Observer
         GUILayout.Label("Health" + _currentHealth);
         GUILayout.EndHorizontal();
 
-        if (_lifeForceLow)
+        if (_currentHealth <= 50f)
         {
             GUILayout.BeginHorizontal("box");
             GUILayout.Label("WARNING LOW HEALTH");
