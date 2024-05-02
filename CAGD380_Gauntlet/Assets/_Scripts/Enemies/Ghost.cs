@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Ghost : EnemyClass
 {
-    public float health = 4f;
-    public float speed = 4f;
-    public float damage = 4f;
+    private void Awake()
+    {
+        GetComponent<MeshRenderer>().material.color = Color.white;
+        health = Spawner.spawnerHealth;
+        speed = 5f;
+        damage = 5f;
+    }
 
     public override void Attack()
     {

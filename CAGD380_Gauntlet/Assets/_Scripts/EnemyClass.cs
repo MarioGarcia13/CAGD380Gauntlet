@@ -9,6 +9,11 @@ public class EnemyClass : MonoBehaviour
     public float speed = 1f;
     public float damage = 1f;
 
+    private void Awake()
+    {
+        GetComponent<Material>().color = Color.white;
+    }
+
     public virtual void Attack()
     {
         Debug.Log("attacked the player");

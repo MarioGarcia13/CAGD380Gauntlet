@@ -5,9 +5,10 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [Range(1, 3)]
-    public static int level;
+    public int level;
 
-    public int spawnerHealth;
+
+    public static int spawnerHealth;
     public GameObject spawnLocation;
     public GameObject EnemyType;
 

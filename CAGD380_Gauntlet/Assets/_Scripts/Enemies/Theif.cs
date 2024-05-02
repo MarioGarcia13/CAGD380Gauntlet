@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Theif : MonoBehaviour
+public class Theif : EnemyClass
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GetComponent<MeshRenderer>().material.color = Color.magenta;
+        health = Spawner.spawnerHealth;
+        speed = 5f;
+        damage = 5f;
     }
 }
