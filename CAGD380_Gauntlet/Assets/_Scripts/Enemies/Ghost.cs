@@ -11,14 +11,4 @@ public class Ghost : EnemyClass
         speed = 5f;
         damage = 5f;
     }
-
-    public override void Attack()
-    {
-
-    }
-
-    public override void Roam()
-    {
-
-    }
 }

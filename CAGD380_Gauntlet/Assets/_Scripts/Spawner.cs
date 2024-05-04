@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
                 break;
         }
 
-        InvokeRepeating("SpawnEnemy", 3.0f, 3.0f);
+        InvokeRepeating("SpawnEnemy", 5.0f, 5.0f);
     }
 
     // Update is called once per frame
