@@ -9,7 +9,7 @@ public class EnemyClass : MonoBehaviour
     public float health = 2f;
     public float speed = 1f;
     public float damage = 1f;
-    public float attackRadius = 1.5f;
+    public float attackRadius = .3f;
     public float attackCooldown = 2.5f;
     public float lastAttackTime;
     private Transform player;
