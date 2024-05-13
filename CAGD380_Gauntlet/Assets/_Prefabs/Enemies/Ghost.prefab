@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2005521090060287964}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   attackRadius: 5
   attackCooldown: 1
   lastAttackTime: 0
+  player: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!54 &-2005521090060287964
 Rigidbody:
   m_ObjectHideFlags: 0

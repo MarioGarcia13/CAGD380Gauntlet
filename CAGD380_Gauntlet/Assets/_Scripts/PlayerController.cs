@@ -84,4 +84,33 @@ public class PlayerController : Subject
             Destroy(gameObject);
         }
     }
+    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("food"))
+        {
+            if(health == 100)
+            {
+                Destroy(other.gameObject);
+                return;  
+            }
+            else
+            {
+                health += 50;
+                Destroy(other.gameObject);
+            }
+
+        }
+        if (other.CompareTag("treasure"))
+        {
+            //increase score
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("enemy"))
+        {
+            health -= 10; //temporary
+        }
+
+    }
 }
