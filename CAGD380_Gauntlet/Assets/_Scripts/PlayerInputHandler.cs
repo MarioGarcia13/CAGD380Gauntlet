@@ -19,9 +19,14 @@ public class PlayerInputHandler : MonoBehaviour
             transform.position = playerController.transform.position;
         }
     }
-
+    
     public void OnMove(InputAction.CallbackContext context)
     {
         playerController.OnMove(context);
+    }
+
+    public void OnMelee(InputAction.CallbackContext context)
+    {
+        playerController.OnMelee(context);
     }
 }

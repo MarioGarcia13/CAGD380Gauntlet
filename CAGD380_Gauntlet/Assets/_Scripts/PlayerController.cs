@@ -8,14 +8,14 @@ public class PlayerController : Subject
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
     [SerializeField] float playerSpeed = 5f;
-    private float gravityValue = -9.81f;
 
     private HUDController _hudController;
     [SerializeField] private float health = 100;
 
     private Vector3 move;
+
+    public GameObject Sword;
 
     public float CurrentHealth
     {
@@ -25,6 +25,11 @@ public class PlayerController : Subject
     {
         _hudController = gameObject.AddComponent<HUDController>();
         controller = GetComponent<CharacterController>();
+
+        if (Sword != null)
+        {
+            Sword.SetActive(false);
+        }
     }
 
     private void OnEnable()
@@ -42,7 +47,9 @@ public class PlayerController : Subject
             Detach(_hudController);
         }
     }
-    void Update()
+
+    
+    void FixedUpdate()
     {  
         controller.Move(move * Time.deltaTime * playerSpeed);
 
@@ -51,14 +58,19 @@ public class PlayerController : Subject
             gameObject.transform.forward = move;
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+    
 
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 movement = context.ReadValue<Vector2>();
         move = new Vector3(movement.x, 0, movement.y);
+    }
+
+    public void OnMelee(InputAction.CallbackContext context)
+    {
+        Sword.SetActive(context.performed);
     }
 
     public void TakeDamage(float amount)
