@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Ghost : EnemyClass
 {
-    private Transform player;
-    private Rigidbody rb;
-
     private void Awake()
     {
         GetComponent<MeshRenderer>().material.color = Color.white;

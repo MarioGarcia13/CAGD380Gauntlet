@@ -12,8 +12,8 @@ public class EnemyClass : MonoBehaviour
     public float attackRadius = .3f;
     public float attackCooldown = 2.5f;
     public float lastAttackTime;
-    private Transform player;
-    private Rigidbody rb;
+    public Transform player;
+    public Rigidbody rb;
 
     private void Awake()
     {
