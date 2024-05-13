@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Grunt : EnemyClass
 {
-    private Transform player;
-    private Rigidbody rb;
 
     private void Awake()
     {
@@ -14,7 +12,6 @@ public class Grunt : EnemyClass
         speed = 5f;
         damage = 5f;
     }
-
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;

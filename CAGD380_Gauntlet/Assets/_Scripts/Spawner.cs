@@ -19,18 +19,21 @@ public class Spawner : MonoBehaviour
         {
             case 1:
                 spawnerHealth = 1;
+                GetComponent<MeshRenderer>().material.color = Color.red;
                 break;
             case 2:
                 spawnerHealth = 2;
+                GetComponent<MeshRenderer>().material.color = Color.yellow;
                 break;
             case 3:
                 spawnerHealth = 3;
+                GetComponent<MeshRenderer>().material.color = Color.green;
                 break;
             default:
                 break;
         }
 
-        InvokeRepeating("SpawnEnemy", 5.0f, 5.0f);
+        InvokeRepeating("SpawnEnemy", 5.0f, 10.0f);
     }
 
     // Update is called once per frame
