@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
-    private float destroyTime = 3f;
+    private float destroyTime = 1f;
     private float speed = 10f;
     private float damage = 2f;
     private Rigidbody rb;
@@ -26,17 +26,14 @@ public class Projectile : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("enemy"))
-        {
-            _pool.Release(this);
-        }
-    }
-
     public void SetPool(ObjectPool<Projectile> pool)
     {
         _pool = pool;
+    }
+
+    private void ReturnToPool()
+    {
+        _pool.Release(this);
     }
 
     private IEnumerator DeactivateProjectile()
@@ -46,7 +43,8 @@ public class Projectile : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             yield return null;
+            
         }
-        _pool.Release(this);
+        ReturnToPool();
     }
 }
