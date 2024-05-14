@@ -5,6 +5,9 @@ using UnityEngine.Pool;
 
 public class PlayerProjectilePool : MonoBehaviour
 {
+    public int maxPoolSize = 2;
+    public int stackDefaultCapacity = 2;
+
     public ObjectPool<Projectile> _pool;
 
     private PlayerController _playerController;
@@ -12,12 +15,12 @@ public class PlayerProjectilePool : MonoBehaviour
     private void Start()
     {
         _playerController = GetComponent<PlayerController>();
-        _pool = new ObjectPool<Projectile>(CreateProjectile, OnTakeProjectileFromPool, OnReturnProjectileToPool, OnDestroyProjectile, true, 10, 15);
+        _pool = new ObjectPool<Projectile>(CreateProjectile, OnTakeProjectileFromPool, OnReturnProjectileToPool, OnDestroyProjectile, true, stackDefaultCapacity, maxPoolSize);
     }
 
     private Projectile CreateProjectile()
     {
-        Projectile projectile = Instantiate(_playerController.projectile, _playerController.projectileSpawnPoint.position, _playerController.projectileSpawnPoint.rotation);
+        Projectile projectile = Instantiate(_playerController.projectile, _playerController.projectileSpawnPoint.position, transform.rotation);
 
         projectile.SetPool(_pool);
 
