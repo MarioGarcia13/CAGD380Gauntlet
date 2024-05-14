@@ -17,7 +17,7 @@ public class PlayerProjectilePool : MonoBehaviour
 
     private Projectile CreateProjectile()
     {
-        Projectile projectile = Instantiate(_playerController.projectile, _playerController.projectileSpawnPoint.position, _playerController.transform.rotation);
+        Projectile projectile = Instantiate(_playerController.projectile, _playerController.projectileSpawnPoint.position, transform.rotation);
 
         projectile.SetPool(_pool);
 
