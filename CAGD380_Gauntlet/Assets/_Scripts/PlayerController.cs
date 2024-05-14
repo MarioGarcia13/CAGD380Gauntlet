@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerController : Subject
+public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private PlayerProjectilePool projectilePool;
@@ -44,7 +44,7 @@ public class PlayerController : Subject
     }
     private void Awake()
     {
-        _hudController = gameObject.AddComponent<HUDController>();
+        //_hudController = gameObject.AddComponent<HUDController>();
         controller = GetComponent<CharacterController>();
 
         if (sword != null)
@@ -61,7 +61,7 @@ public class PlayerController : Subject
     {
         projectilePool = GetComponent<PlayerProjectilePool>();
     }
-
+    /*
     private void OnEnable()
     {
         if (_hudController)
@@ -77,6 +77,7 @@ public class PlayerController : Subject
             Detach(_hudController);
         }
     }
+    */
 
     private void Update()
     {
@@ -131,7 +132,7 @@ public class PlayerController : Subject
     {
         health -= amount;
 
-        NotifyObservers();
+        //NotifyObservers();
 
         if (health < 0)
         {
