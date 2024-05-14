@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject[] playerUIPanels;
+    public GameObject[] joinMessages;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,17 +18,24 @@ public class UIManager : MonoBehaviour
 
     void PlayerJoinedGame(PlayerInput playerInput)
     {
-
+        ShowUIPanel(playerInput);
     }
 
     void PlayerLeftGame(PlayerInput playerInput)
     {
-
+        HideUiPanel(playerInput);
     }
 
-    // Update is called once per frame
-    void Update()
+    void ShowUIPanel(PlayerInput playerInput)
     {
-        
+        playerUIPanels[playerInput.playerIndex].SetActive(true);
+        playerUIPanels[playerInput.playerIndex].GetComponent<PlayerUI>().AssignPlayer(playerInput.playerIndex);
+        joinMessages[playerInput.playerIndex].SetActive(false);
+    }
+
+    void HideUiPanel(PlayerInput playerInput)
+    {
+        playerUIPanels[playerInput.playerIndex].SetActive(false);
+        joinMessages[playerInput.playerIndex].SetActive(false);
     }
 }

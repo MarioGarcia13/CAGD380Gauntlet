@@ -15,6 +15,16 @@ public class PlayerController : Subject
     private HUDController _hudController;
     [SerializeField] private float health = 700;
 
+    public enum playerName
+    {
+        Player1,
+        Player2,
+        Player3,
+        Player4
+    }
+
+    public playerName thisPlayersName = playerName.Player1;
+
     private int keys = 0;
     private int score = 0;
 
@@ -23,6 +33,7 @@ public class PlayerController : Subject
     public GameObject Sword;
 
     public event System.Action<int> OnScoreChanged;
+    public event System.Action<float> OnHealthChanged;
 
     public float CurrentHealth
     {
@@ -57,14 +68,9 @@ public class PlayerController : Subject
 
     private void Update()
     {
-        //decrease health every second.
         if (health <= 0)
         {
             GameOver();
-        }
-        else
-        {
-            health -= 1 * Time.deltaTime;
         }
     }
 
@@ -138,12 +144,20 @@ public class PlayerController : Subject
         {
             score += 100;
             Destroy(other.gameObject);
+            if (OnScoreChanged != null)
+            {
+                OnScoreChanged(score);
+            }
         }
         if (other.CompareTag("key"))
         {
             keys++;
             score += 100;
             Destroy(other.gameObject);
+            if (OnScoreChanged != null)
+            {
+                OnScoreChanged(score);
+            }
         }
         if (other.CompareTag("door"))
         {
@@ -153,18 +167,18 @@ public class PlayerController : Subject
             }
             keys--;
             Destroy(other.gameObject);
-
-            if (OnScoreChanged != null)
-            {
-                OnScoreChanged(score);
-            }
         }
         if (other.CompareTag("enemy"))
         {
             health -= 10; //temporary
+            if (OnHealthChanged != null)
+            {
+                OnHealthChanged(health);
+            }
         }
         if (other.CompareTag("portal"))
         {
+            
             TheEnd();
         }
     }
