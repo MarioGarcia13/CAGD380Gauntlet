@@ -28,6 +28,11 @@ public class EnemyClass : MonoBehaviour
 
     private void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         Roam();
     }
 
@@ -42,15 +47,18 @@ public class EnemyClass : MonoBehaviour
 
         if (distanceToPlayer <= attackRadius)
         {
-            if(Time.time - lastAttackTime >= attackCooldown)
+            
+            if (Time.time - lastAttackTime >= attackCooldown)
             {
                 Attack();
                 lastAttackTime = Time.time;
             }
             rb.velocity = Vector3.zero;
+            Vector3 moveDirection = (player.position - transform.position).normalized;
+            rb.velocity = moveDirection * speed;
             return;
         }
-        Vector3 moveDirection = (player.position - transform.position).normalized;
-        rb.velocity = moveDirection * speed;
+        
+        
     }
 }

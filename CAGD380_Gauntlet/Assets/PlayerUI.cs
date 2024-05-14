@@ -43,6 +43,6 @@ public class PlayerUI : MonoBehaviour
 
     private void UpdateHealth(float health)
     {
-        playerHealth.text = health.ToString();
+        playerHealth.text = health.ToString("00.0");
     }
 }

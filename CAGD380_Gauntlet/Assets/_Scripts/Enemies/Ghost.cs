@@ -17,10 +17,10 @@ public class Ghost : EnemyClass
         rb = GetComponent<Rigidbody>();
     }
 
-    public override void Roam()
-    {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        Vector3 moveDirection = (player.position - transform.position).normalized;
-        rb.velocity = moveDirection * speed;
-    }
+    //public override void Roam()
+    //{
+    //    float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+    //    Vector3 moveDirection = (player.position - transform.position).normalized;
+    //    rb.velocity = moveDirection * speed;
+    //}
 }

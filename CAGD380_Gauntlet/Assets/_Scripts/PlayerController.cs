@@ -72,6 +72,14 @@ public class PlayerController : Subject
         {
             GameOver();
         }
+        else
+        {
+            health -= 1*Time.deltaTime;
+            if (OnHealthChanged != null)
+            {
+                OnHealthChanged(health);
+            }
+        }
     }
 
     void FixedUpdate()

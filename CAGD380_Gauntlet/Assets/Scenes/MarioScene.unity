@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 0}
   playerScore: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!114 &5458243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13047,6 +13048,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1379402490914360092, guid: 0d4e37f59eff122418626c9c230d6e3c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.0000153
+      objectReference: {fileID: 0}
     - target: {fileID: 4985744074258655355, guid: 0d4e37f59eff122418626c9c230d6e3c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -14218,7 +14224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 20, z: 0}
-  smoothSpeed: 1
+  smoothSpeed: 5.5
 --- !u!1 &334126086
 GameObject:
   m_ObjectHideFlags: 0
@@ -36033,6 +36039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 0}
   playerScore: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!114 &922350183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51311,6 +51318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379402490914360092, guid: 0d4e37f59eff122418626c9c230d6e3c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.0000153
       objectReference: {fileID: 0}
     - target: {fileID: 4985744074258655355, guid: 0d4e37f59eff122418626c9c230d6e3c,
         type: 3}
@@ -74177,6 +74189,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1379402490914360092, guid: 0d4e37f59eff122418626c9c230d6e3c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.0000153
+      objectReference: {fileID: 0}
     - target: {fileID: 4985744074258655355, guid: 0d4e37f59eff122418626c9c230d6e3c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -74546,6 +74563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 0}
   playerScore: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!114 &1912623048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82872,6 +82890,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115653272}
     m_Modifications:
+    - target: {fileID: 2416361629892297183, guid: 220f8a09672180f4c89adfb213bbfa0d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 9.178524
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416361629892297183, guid: 220f8a09672180f4c89adfb213bbfa0d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 7.144452
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416361629892297183, guid: 220f8a09672180f4c89adfb213bbfa0d,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.07287355
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416361629892297183, guid: 220f8a09672180f4c89adfb213bbfa0d,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.2078163
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416361629892297183, guid: 220f8a09672180f4c89adfb213bbfa0d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2905035668923211340, guid: 220f8a09672180f4c89adfb213bbfa0d,
         type: 3}
       propertyPath: EnemyType
@@ -82981,6 +83024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 0}
   playerScore: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!1001 &6894789451474486263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82998,6 +83042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379402490914360092, guid: 0d4e37f59eff122418626c9c230d6e3c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.0000153
       objectReference: {fileID: 0}
     - target: {fileID: 4985744074258655355, guid: 0d4e37f59eff122418626c9c230d6e3c,
         type: 3}

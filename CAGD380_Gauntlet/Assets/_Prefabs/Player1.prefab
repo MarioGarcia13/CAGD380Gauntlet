@@ -186,8 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09386559d910096478987bc9dfea040e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
-  health: 100
+  playerSpeed: 7
+  health: 700
+  thisPlayersName: 0
   Sword: {fileID: 9067120547683055328}
 --- !u!143 &2850146119262486264
 CharacterController:
