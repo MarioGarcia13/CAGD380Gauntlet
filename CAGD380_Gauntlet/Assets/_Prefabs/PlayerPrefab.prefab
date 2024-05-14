@@ -156,7 +156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6437317995053991295
 Transform:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2994892596129324618}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09386559d910096478987bc9dfea040e, type: 3}
   m_Name: 
@@ -192,7 +192,7 @@ MonoBehaviour:
     type: 3}
   playerSpeed: 5
   health: 100
-  thisPlayersName: 0
+  thisPlayersName: 3
   sword: {fileID: 9067120547683055328}
   bow: {fileID: 3178268138560499390}
   projectileSpawnPoint: {fileID: 6747536903443023736}

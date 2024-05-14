@@ -19,7 +19,7 @@ public class PlayerUI : MonoBehaviour
 
     IEnumerator AssignPlayerDelay(int index)
     {
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.05f);
         player = GameManager.instance.playerList[index].GetComponent<PlayerInputHandler>().playerController;
 
         SetupInfoPanel();
