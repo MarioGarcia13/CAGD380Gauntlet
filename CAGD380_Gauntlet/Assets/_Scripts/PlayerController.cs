@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : Subject
@@ -12,7 +13,10 @@ public class PlayerController : Subject
     [SerializeField] float playerSpeed = 5f;
 
     private HUDController _hudController;
-    [SerializeField] private float health = 100;
+    [SerializeField] private float health = 700;
+
+    private int keys = 0;
+    private int score = 0;
 
     private Vector3 move;
 
@@ -49,9 +53,21 @@ public class PlayerController : Subject
         }
     }
 
-    
+    private void Update()
+    {
+        //decrease health every second.
+        if (health <= 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            health -= 1 * Time.deltaTime;
+        }
+    }
+
     void FixedUpdate()
-    {  
+    {
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
@@ -61,7 +77,7 @@ public class PlayerController : Subject
 
         controller.Move(playerVelocity * Time.deltaTime);
     }
-    
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -91,33 +107,59 @@ public class PlayerController : Subject
             Destroy(gameObject);
         }
     }
-    
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void TheEnd()
+    {
+        SceneManager.LoadScene("TheEnd");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("food"))
         {
-            if(health == 100)
+            if (health == 700)
             {
                 Destroy(other.gameObject);
-                return;  
+                return;
             }
             else
             {
-                health += 50;
+                health += 500;
                 Destroy(other.gameObject);
             }
-
         }
         if (other.CompareTag("treasure"))
         {
-            //increase score
+            score += 100;
             Destroy(other.gameObject);
+        }
+        if (other.CompareTag("key"))
+        {
+            keys++;
+            score += 100;
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("door"))
+        {
+            if (keys <= 0)
+            {
+                return;
+            }
+            keys--;
+            Destroy(other.gameObject);
+
         }
         if (other.CompareTag("enemy"))
         {
             health -= 10; //temporary
         }
-
+        if (other.CompareTag("portal"))
+        {
+            TheEnd();
+        }
     }
 }

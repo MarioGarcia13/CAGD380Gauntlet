@@ -9,6 +9,8 @@ TagManager:
   - treasure
   - enemy
   - key
+  - door
+  - portal
   layers:
   - Default
   - TransparentFX
