@@ -8,7 +8,7 @@ public class ButtonUI : MonoBehaviour
 {
     public void Restart()
     {
-        SceneManager.LoadScene("MarioScene");
+        SceneManager.LoadScene("Levels");
     }
 
     public void QuitGame()

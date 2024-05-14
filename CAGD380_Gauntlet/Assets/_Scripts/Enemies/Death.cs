@@ -11,4 +11,9 @@ public class Death : EnemyClass
         speed = 5f;
         damage = 5f;
     }
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody>();
+    }
 }
