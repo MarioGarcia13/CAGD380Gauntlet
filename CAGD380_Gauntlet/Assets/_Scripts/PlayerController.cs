@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : Subject
 {
     private CharacterController controller;
+    private Projectile projectile;
     private Vector3 playerVelocity;
     [SerializeField] float playerSpeed = 5f;
 
@@ -71,6 +72,12 @@ public class PlayerController : Subject
     public void OnMelee(InputAction.CallbackContext context)
     {
         Sword.SetActive(context.performed);
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            projectile.Shoot();
     }
 
     public void TakeDamage(float amount)

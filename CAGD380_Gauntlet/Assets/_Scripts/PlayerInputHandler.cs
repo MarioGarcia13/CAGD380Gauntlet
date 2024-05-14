@@ -29,4 +29,9 @@ public class PlayerInputHandler : MonoBehaviour
     {
         playerController.OnMelee(context);
     }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        playerController.OnShoot(context);
+    }
 }
