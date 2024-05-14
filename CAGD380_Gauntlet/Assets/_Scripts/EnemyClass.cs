@@ -61,4 +61,19 @@ public class EnemyClass : MonoBehaviour
         
         
     }
+    
+    protected void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("sword") || other.CompareTag("projectile"))
+        {
+            health -= 2; //temporary
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+    
 }

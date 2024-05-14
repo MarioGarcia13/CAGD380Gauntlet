@@ -12,6 +12,7 @@ TagManager:
   - door
   - portal
   - projectile
+  - sword
   layers:
   - Default
   - TransparentFX

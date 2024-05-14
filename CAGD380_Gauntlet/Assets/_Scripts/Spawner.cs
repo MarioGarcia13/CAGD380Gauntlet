@@ -40,5 +40,4 @@ public class Spawner : MonoBehaviour
        GameObject.Instantiate(EnemyType, spawnLocation.transform.position, transform.rotation);
     }
 
-
 }
