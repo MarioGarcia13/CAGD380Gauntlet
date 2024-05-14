@@ -8,6 +8,7 @@ TagManager:
   - food
   - treasure
   - enemy
+  - key
   layers:
   - Default
   - TransparentFX
