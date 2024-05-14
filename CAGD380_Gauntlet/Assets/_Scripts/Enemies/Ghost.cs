@@ -23,4 +23,5 @@ public class Ghost : EnemyClass
         Vector3 moveDirection = (player.position - transform.position).normalized;
         rb.velocity = moveDirection * speed;
     }
+    
 }

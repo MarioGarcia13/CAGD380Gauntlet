@@ -46,4 +46,18 @@ public class Spawner : MonoBehaviour
     {
         GameObject.Instantiate(EnemyType, spawnLocation.transform.position, transform.rotation);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("sword") || other.CompareTag("projectile"))
+        {
+            spawnerHealth -= 1;
+
+            if (spawnerHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }

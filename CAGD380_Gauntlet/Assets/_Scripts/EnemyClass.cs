@@ -53,4 +53,19 @@ public class EnemyClass : MonoBehaviour
         Vector3 moveDirection = (player.position - transform.position).normalized;
         rb.velocity = moveDirection * speed;
     }
+    
+    protected void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("sword") || other.CompareTag("projectile"))
+        {
+            health -= 2; //temporary
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+    
 }
