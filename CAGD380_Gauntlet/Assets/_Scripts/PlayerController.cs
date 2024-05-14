@@ -22,6 +22,8 @@ public class PlayerController : Subject
 
     public GameObject Sword;
 
+    public event System.Action<int> OnScoreChanged;
+
     public float CurrentHealth
     {
         get { return health; }
@@ -152,6 +154,10 @@ public class PlayerController : Subject
             keys--;
             Destroy(other.gameObject);
 
+            if (OnScoreChanged != null)
+            {
+                OnScoreChanged(score);
+            }
         }
         if (other.CompareTag("enemy"))
         {
