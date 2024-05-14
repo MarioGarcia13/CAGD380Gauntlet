@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : Subject
 {
     private CharacterController controller;
-    private Projectile projectile;
+    private PlayerProjectilePool projectilePool;
+    public Projectile projectile;
     private Vector3 playerVelocity;
     [SerializeField] float playerSpeed = 5f;
 
@@ -20,7 +21,9 @@ public class PlayerController : Subject
 
     private Vector3 move;
 
-    public GameObject Sword;
+    public GameObject sword;
+    public GameObject bow;
+    public Transform projectileSpawnPoint;
 
     public event System.Action<int> OnScoreChanged;
 
@@ -33,10 +36,19 @@ public class PlayerController : Subject
         _hudController = gameObject.AddComponent<HUDController>();
         controller = GetComponent<CharacterController>();
 
-        if (Sword != null)
+        if (sword != null)
         {
-            Sword.SetActive(false);
+            sword.SetActive(false);
         }
+        if (bow != null)
+        {
+            sword.SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
+        projectilePool = GetComponent<PlayerProjectilePool>();
     }
 
     private void OnEnable()
@@ -89,15 +101,17 @@ public class PlayerController : Subject
 
     public void OnMelee(InputAction.CallbackContext context)
     {
-        Sword.SetActive(context.performed);
+        sword.SetActive(context.performed);
     }
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed)
-            projectile.Shoot();
-    }
+        bow.SetActive(context.performed);
+        if(context.performed)
+            projectilePool._pool.Get();
 
+    }
+    
     public void TakeDamage(float amount)
     {
         health -= amount;

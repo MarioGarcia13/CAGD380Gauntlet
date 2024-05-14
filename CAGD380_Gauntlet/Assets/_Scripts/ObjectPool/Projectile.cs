@@ -5,57 +5,48 @@ using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
-    public IObjectPool<Projectile> Pool { get; set; }
+    private float destroyTime = 3f;
+    private float speed = 10f;
+    private float damage = 2f;
+    private Rigidbody rb;
 
-    private float _speed = 10f;
+    private ObjectPool<Projectile> _pool;
 
-
-    [SerializeField]
-    private float timeToSelfDestruct = 3f;
-
-    private void Start()
-    {
-        
-    }
+    private Coroutine deactivateProjectileAfterTime;
 
     private void OnEnable()
     {
-        //AttackPlayer();
-        StartCoroutine(SelfDestruct());
+        deactivateProjectileAfterTime = StartCoroutine(DeactivateProjectile());
     }
 
-    private void OnDisable()
+    private void Awake()
     {
-        ResetProjectile();
+        rb = GetComponent<Rigidbody>();
+
+        rb.velocity = transform.forward * speed;
     }
 
-    IEnumerator SelfDestruct()
+    private void OnTriggerEnter(Collider other)
     {
-        yield return new WaitForSeconds(timeToSelfDestruct);
-        //TakeDamage(maxHealth);
+        if (other.CompareTag("enemy"))
+        {
+            _pool.Release(this);
+        }
     }
 
-    private void ReturnToPool()
+    public void SetPool(ObjectPool<Projectile> pool)
     {
-        Pool.Release(this);
+        _pool = pool;
     }
 
-    private void ResetProjectile()
+    private IEnumerator DeactivateProjectile()
     {
-        //_currentHealth = maxHealth;
-    }
-
-    public void Shoot()
-    {
-        Debug.Log("attack player behaviors go here");
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-    }
-
-    public void TakeDamage(float amount)
-    {
-        //_currentHealth -= amount;
-
-        //if (_currentHealth <= 0.0f)
-            //ReturnToPool();
+        float elapsedTime = 0f;
+        while(elapsedTime < destroyTime)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        _pool.Release(this);
     }
 }

@@ -8,13 +8,13 @@ public class ClientObjectPool : MonoBehaviour
 
     private void Start()
     {
-        _pool = gameObject.AddComponent<PlayerProjectilePool>();
+        //_pool = gameObject.AddComponent<PlayerProjectilePool>();
     }
 
     private void OnGUI()
     {
-        if (GUILayout.Button("Spawn"))
-            _pool.Spawn();
+        //if (GUILayout.Button("Spawn"))
+           // _pool.Spawn();
     }
 }
 

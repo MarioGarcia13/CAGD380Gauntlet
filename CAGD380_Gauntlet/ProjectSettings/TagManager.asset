@@ -11,6 +11,7 @@ TagManager:
   - key
   - door
   - portal
+  - projectile
   layers:
   - Default
   - TransparentFX
