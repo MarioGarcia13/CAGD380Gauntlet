@@ -135,6 +135,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2680ebd8-b359-469f-9881-d31cfcd09c91"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""83bc587e-307e-48f1-9b37-01cc7f662852"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",

@@ -8,6 +8,7 @@ public class PlayerUI : MonoBehaviour
 {
     public TextMeshProUGUI playerName;
     public TextMeshProUGUI playerScore;
+    public TextMeshProUGUI playerHealth;
 
     PlayerController player;
 
@@ -28,8 +29,20 @@ public class PlayerUI : MonoBehaviour
     {
         if (player != null)
         {
-            
+            player.OnScoreChanged += UpdateScore;
+            player.OnHealthChanged += UpdateHealth;
+            playerName.text = player.thisPlayersName.ToString();
         }
 
+    }
+
+    private void UpdateScore(int score)
+    {
+        playerScore.text = score.ToString();
+    }
+
+    private void UpdateHealth(float health)
+    {
+        playerHealth.text = health.ToString("00.0");
     }
 }
